@@ -1,0 +1,2 @@
+[['L', 'D', 'D', 'B', 'B'], ['B', 'B', 'L', 'B', 'B'], ['D', 'B', 'L', 'B', 'L']]
+LDBLDBDBLBDLDDD
