@@ -15,19 +15,20 @@ class Solution:
                 
         return False
 
-    def search(self, board, word, i, j, pos):
-        if i < 0 or i >= self.m or j < 0 or j >= self.n or word[pos] != board[i][j]:
+    def search(self, board, word, row, col, pos):
+        if row < 0 or row >= self.m or col < 0 or col >= self.n or word[pos] != board[row][col]:
             return False
         if pos == len(word) - 1:
             return True
         
-        temp = board[i][j]
-        board[i][j] = ' '
-        res = self.search(board, word, i, j + 1, pos + 1) \
-                or self.search(board, word, i, j - 1, pos + 1) \
-                or self.search(board, word, i + 1, j, pos + 1) \
-                or self.search(board, word, i - 1, j, pos + 1)
-        board[i][j] = temp
+        temp = board[row][col]
+        board[row][col] = ' '
+        res = self.search(board, word, row, col + 1, pos + 1) \
+                or self.search(board, word, row, col - 1, pos + 1) \
+                or self.search(board, word, row + 1, col, pos + 1) \
+                or self.search(board, word, row - 1, col, pos + 1)
+        board[row][col] = temp
+        
         return res
 
     def solve(self, board, word):
@@ -40,11 +41,7 @@ class Solution:
         return []
 
 
-board = input()[3:-3].split("\'], [\'")
+board = input().strip()[3:-3].split("\'], [\'")
 board = [a.split("\', \'") for a in board]
-word = input()
-
-if Solution().exist(board, word):
-    print("true")
-else:
-    print("false")
+word = input().strip()
+Solution().solve(board, word)

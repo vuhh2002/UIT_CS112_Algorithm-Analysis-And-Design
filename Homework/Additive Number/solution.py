@@ -14,21 +14,22 @@ class Solution:
         return False
         
     def search(self, pos, stringNum):
-        if len(stringNum) >= 2 and stringNum[0] == "0" \
-        or (len(self.additiveSequence) >= 2 and self.additiveSequence[-2] + self.additiveSequence[-1] != int(stringNum)):
+        if (len(stringNum) > 1 and stringNum[0] == "0") \
+        or (len(self.additiveSequence) >= 2 \
+        and self.additiveSequence[-2] + self.additiveSequence[-1] != int(stringNum)):
             return False
         
         if pos == self.length:
-            if len(self.additiveSequence) <= 1:
+            if len(self.additiveSequence) < 2:
                 return False
             return True
+
         self.additiveSequence.append(int(stringNum))
-        
         for i in range(pos + 1, self.length + 1):
             if self.search(i, self.num[pos:i]):
                 return True
-            
         self.additiveSequence.pop()
+
         return False
 
     def solve(self, num):
@@ -41,8 +42,4 @@ class Solution:
         return self.additiveSequence
 
 
-num = input()
-if Solution().isAdditiveNumber(num):
-    print("true")
-else:
-    print("false")
+Solution().solve(input().strip())
