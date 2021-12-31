@@ -1,4 +1,4 @@
 # UIT_CS112_Algorithm-Analysis-And-Design
-## Nhóm 8:
-### Nguyễn Đức Minh Khang - MSSV 20520568
-### Huỳnh Hoàng Vũ - MSSV 20520864
+## Group Member
+### Name: Nguyễn Đức Minh Khang - StudentID: 20520568
+### Name: Huỳnh Hoàng Vũ - StudentID: 20520864
